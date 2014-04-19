@@ -1,0 +1,16 @@
+default['django_deploy']['app_name'] = "django_deploy"
+default['django_deploy']['sql_host'] = "127.0.0.1"
+default['django_deploy']['sql_port'] = 5432
+default['django_deploy']['sql_username'] = 'postgres'
+default['django_deploy']['sql_password'] = 'test1234'
+default['django_deploy']['nginx_host'] = "127.0.0.1"
+default['django_deploy']['nginx_port'] = 8080
+default['django_deploy']['nginx_domain'] = "localhost"
+default['django_deploy']['git_repo'] = "https://github.com/devArena/django_deploy.git"
+default['django_deploy']['git_revision'] = "master"
+default['django_deploy']['django_local_settings'] = "settings_local.py"
+default['django_deploy']['django_requirements'] = "requirements.txt"
+default['django_deploy']['django_requirements_additional'] = ["psycopg2"]
+default['django_deploy']['django_database_name'] = "django_deploy"
+default['django_deploy']['gunicorn_host'] = "127.0.0.1"
+default['django_deploy']['gunicorn_port'] = 8080
