@@ -1,19 +1,6 @@
 require 'rubygems'
 require 'json'
 
-include_recipe "apt"
-include_recipe "git"
-include_recipe "vim"
-include_recipe "nginx"
-include_recipe "postgresql::client"
-include_recipe "postgresql::server"
-include_recipe "database"
-include_recipe "database::postgresql"
-include_recipe "application"
-
-#include_recipe "memcached"
-#include_recipe "rabbitmq"
-
 app_name = node['django_deploy']['app_name']
 sql_host = node['django_deploy']['sql_host']
 sql_port = node['django_deploy']['sql_port']
@@ -31,7 +18,21 @@ django_database_name = node['django_deploy']['django_database_name']
 gunicorn_host = node['django_deploy']['gunicorn_host']
 gunicorn_port = node['django_deploy']['gunicorn_port']
 
+node.default['postgresql']['password']['postgres'] = sql_password
+node.default['nginx']['install_method'] = "package"
 
+include_recipe "apt"
+include_recipe "git"
+include_recipe "vim"
+include_recipe "nginx"
+include_recipe "postgresql::client"
+include_recipe "postgresql::server"
+include_recipe "database"
+include_recipe "database::postgresql"
+include_recipe "application"
+
+#include_recipe "memcached"
+#include_recipe "rabbitmq"
 
 postgresql_connection_info = {
     :host      => sql_host,

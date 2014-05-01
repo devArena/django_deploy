@@ -1,4 +1,4 @@
-site :opscode
+site 'http://community.opscode.com/api/v1'
 
 cookbook "apt"
 cookbook "git"
@@ -7,4 +7,4 @@ cookbook "nginx"
 cookbook "postgresql"
 cookbook "database"
 cookbook "application_python"
-cookbook "django_deploy", path: "~/devarena/cookbooks/django_deploy"
+cookbook "django_deploy", :path => "site-cookbooks/django_deploy"
