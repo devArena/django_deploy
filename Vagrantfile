@@ -2,7 +2,11 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  config.vm.define :djangovm do |django_config|
- 
+
+  django_config.vm.box = "precise32"
+
+  django_config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+
   config.omnibus.chef_version = :latest
 
   config.vm.network :forwarded_port, guest: 80, host: 8080
