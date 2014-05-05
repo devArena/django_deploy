@@ -13,7 +13,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 80, host: 8080
   config.vm.network :forwarded_port, guest: 8000, host: 8001
  
-  config.vm.synced_folder "srv", "/srv/" + app_name + "/current", create: true
+  config.vm.synced_folder ".", "/vagrant", disabled:true
+  config.vm.synced_folder "srv", "/srv/" + app_name, create:true, owner:"root", group:"root"
+  config.vm.synced_folder "log", "/var/log/supervisor", create:true, owner:"root", group:"root"
 
   django_config.vm.provision :chef_solo do |chef|
     
