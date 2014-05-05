@@ -1,4 +1,5 @@
 cookbooks/
+srv/
 .vagrant/
 tmp/
 Cheffile.lock
