@@ -11,6 +11,13 @@ DATABASES = {
     },
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': '<%= @cache[:type] %>',
+        'LOCATION': '<%= @cache[:location] %>',
+    }
+}
+
 # Taken from http://stackoverflow.com/questions/4664724/distributing-django-projects-with-unique-secret-keys
 try:
     from secret_key import *

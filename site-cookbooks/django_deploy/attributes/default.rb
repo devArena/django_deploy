@@ -14,3 +14,5 @@ default['django_deploy']['django_requirements_additional'] = ["psycopg2"]
 default['django_deploy']['django_database_name'] = "django_deploy"
 default['django_deploy']['gunicorn_host'] = "127.0.0.1"
 default['django_deploy']['gunicorn_port'] = 8080
+default['django_deploy']['cache_type'] = 'django.core.cache.backends.memcached.MemcachedCache'
+default['django_deploy']['cache_location'] = '127.0.0.1:11211'

@@ -104,6 +104,11 @@ application app_name do
         debug false
         local_settings_file "project/#{django_local_settings}"
         collectstatic "collectstatic --noinput"
+        settings :cache =>
+        {
+            :type => cache_type,
+            :location => cache_location
+        }
         database do
             database django_database_name
             adapter  'postgresql_psycopg2'
