@@ -1,4 +1,5 @@
 default['django_deploy']['app_name'] = "django_deploy"
+default['django_deploy']['is_debug'] = true
 default['django_deploy']['sql_host'] = "127.0.0.1"
 default['django_deploy']['sql_port'] = 5432
 default['django_deploy']['sql_username'] = 'postgres'

@@ -18,6 +18,14 @@ CACHES = {
     }
 }
 
+<% if @debug %>
+DEBUG = True
+<% else %>
+DEBUG = False
+<% end %>
+
+TEMPLATE_DEBUG = DEBUG
+
 # Taken from http://stackoverflow.com/questions/4664724/distributing-django-projects-with-unique-secret-keys
 try:
     from secret_key import *

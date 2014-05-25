@@ -2,6 +2,7 @@ require 'rubygems'
 require 'json'
 
 app_name = node['django_deploy']['app_name']
+is_debug = node['django_deploy']['is_debug']
 sql_host = node['django_deploy']['sql_host']
 sql_port = node['django_deploy']['sql_port']
 sql_username = node['django_deploy']['sql_username']
@@ -101,7 +102,7 @@ application app_name do
         requirements django_requirements
         packages django_requirements_additional
         settings_template "settings.py.erb"
-        debug false
+        debug is_debug
         local_settings_file "project/#{django_local_settings}"
         collectstatic "collectstatic --noinput"
         settings :cache =>
